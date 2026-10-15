@@ -1,0 +1,8 @@
+{
+  "name": "Flute Daily - 长笛每日练习助手",
+  "description": "专为长笛演奏者设计的每日系统化练习助手与进度记录工具，包含交互式指法图解、高精度节拍器、校音基准音、长音与泛音练习法、音阶琶音及详细练习打卡与进度分析。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
