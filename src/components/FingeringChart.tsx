@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { FLUTE_FINGERINGS } from '@/data/fingeringData';
 import { FluteFingering } from '@/types/flute';
 import { FluteDiagram } from './FluteDiagram';
+import { FingeringPractice } from './FingeringPractice';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Badge } from './ui/badge';
@@ -28,6 +29,20 @@ export const FingeringChart: React.FC = () => {
   }, [selectedOctave, searchQuery]);
 
   const currentFingering: FluteFingering = FLUTE_FINGERINGS[selectedIndex] || FLUTE_FINGERINGS[0];
+  const currentFilteredIndex = filteredList.indexOf(currentFingering);
+  const practiceItems = useMemo(
+    () => filteredList.map(fingering => ({
+      fingering,
+      originalIndex: FLUTE_FINGERINGS.indexOf(fingering),
+    })),
+    [filteredList],
+  );
+
+  useEffect(() => {
+    if (filteredList.length > 0 && currentFilteredIndex === -1) {
+      setSelectedIndex(FLUTE_FINGERINGS.indexOf(filteredList[0]));
+    }
+  }, [currentFilteredIndex, filteredList]);
 
   const handlePlayTone = (freq: number) => {
     setIsPlayingTone(true);
@@ -36,14 +51,14 @@ export const FingeringChart: React.FC = () => {
   };
 
   const handleNext = () => {
-    if (selectedIndex < FLUTE_FINGERINGS.length - 1) {
-      setSelectedIndex(selectedIndex + 1);
+    if (currentFilteredIndex < filteredList.length - 1) {
+      setSelectedIndex(FLUTE_FINGERINGS.indexOf(filteredList[currentFilteredIndex + 1]));
     }
   };
 
   const handlePrev = () => {
-    if (selectedIndex > 0) {
-      setSelectedIndex(selectedIndex - 1);
+    if (currentFilteredIndex > 0) {
+      setSelectedIndex(FLUTE_FINGERINGS.indexOf(filteredList[currentFilteredIndex - 1]));
     }
   };
 
@@ -130,6 +145,12 @@ export const FingeringChart: React.FC = () => {
         </div>
       </div>
 
+      <FingeringPractice
+        fingerings={practiceItems}
+        activeIndex={currentFilteredIndex}
+        onSelectNote={setSelectedIndex}
+      />
+
       {/* Main Fingering Display Card */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Note Details & Actions */}
@@ -193,7 +214,7 @@ export const FingeringChart: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={handlePrev}
-                disabled={selectedIndex === 0}
+                disabled={currentFilteredIndex <= 0}
                 className="flex-1 flex items-center justify-center gap-1"
               >
                 <ChevronLeft className="h-4 w-4" /> 上一个音
@@ -202,7 +223,7 @@ export const FingeringChart: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={handleNext}
-                disabled={selectedIndex === FLUTE_FINGERINGS.length - 1}
+                disabled={currentFilteredIndex < 0 || currentFilteredIndex >= filteredList.length - 1}
                 className="flex-1 flex items-center justify-center gap-1"
               >
                 下一个音 <ChevronRight className="h-4 w-4" />
