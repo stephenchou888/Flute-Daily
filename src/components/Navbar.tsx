@@ -7,6 +7,7 @@ import {
   Moon,
   Github,
   Music2,
+  Music,
   Clock,
   Compass,
   Radio,
@@ -35,6 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navItems = [
     { id: 'timer', label: '今日练习', icon: Clock },
     { id: 'fingering', label: '长笛指法', icon: Compass },
+    { id: 'scales', label: '音阶练习', icon: Music },
     { id: 'metronome', label: '数字节拍器', icon: Music2 },
     { id: 'drone', label: '校音长音', icon: Radio },
     { id: 'routines', label: '练习宝典', icon: BookOpen },
