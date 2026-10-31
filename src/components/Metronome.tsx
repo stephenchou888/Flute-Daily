@@ -45,7 +45,8 @@ export const Metronome: React.FC<MetronomeProps> = ({
   const scheduleTick = useCallback((time: number) => {
     const subsPerBeat = getSubdivisionsPerBeat();
     const isMainBeat = subTickRef.current === 0;
-    const isFirstBeat = currentBeatRef.current === 0 && isMainBeat;
+    const scheduledBeat = currentBeatRef.current;
+    const isFirstBeat = scheduledBeat === 0 && isMainBeat;
 
     if (!isMuted) {
       fluteAudio.playClick(time, isFirstBeat, !isMainBeat, volume);
@@ -55,7 +56,7 @@ export const Metronome: React.FC<MetronomeProps> = ({
     const delayMs = Math.max(0, (time - fluteAudio.getAudioContextTime()) * 1000);
     setTimeout(() => {
       if (isMainBeat) {
-        setCurrentBeat(currentBeatRef.current);
+        setCurrentBeat(scheduledBeat);
       }
     }, delayMs);
 

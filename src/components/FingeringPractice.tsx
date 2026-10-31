@@ -94,6 +94,24 @@ export const FingeringPractice: React.FC<FingeringPracticeProps> = ({
     return () => window.clearInterval(timer);
   }, [bpm, fingerings, isLooping, isPlaying]);
 
+  const togglePlayback = () => {
+    if (isPlaying) {
+      setIsPlaying(false);
+      return;
+    }
+
+    if (fingerings.length === 0) return;
+
+    const startIndex = Math.min(Math.max(0, activeIndexRef.current), fingerings.length - 1);
+    const firstItem = fingerings[startIndex];
+    if (firstItem) {
+      activeIndexRef.current = startIndex;
+      onSelectNoteRef.current(firstItem.originalIndex);
+      fluteAudio.playFluteTone(firstItem.fingering.frequency, Math.min(1.2, (60 / bpm) * 0.85), 0.28);
+    }
+    setIsPlaying(true);
+  };
+
   useEffect(() => {
     if (!isFocusMode) return;
 
@@ -228,7 +246,7 @@ export const FingeringPractice: React.FC<FingeringPracticeProps> = ({
           <Button
             variant={isPlaying ? 'destructive' : 'default'}
             size="sm"
-            onClick={() => setIsPlaying(value => !value)}
+            onClick={togglePlayback}
           >
             {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
             {isPlaying ? '暂停演示' : '开始演示'}

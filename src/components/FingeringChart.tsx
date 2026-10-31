@@ -12,7 +12,7 @@ import { Volume2, ChevronLeft, ChevronRight, Search, Radio, Music } from 'lucide
 export const FingeringChart: React.FC = () => {
   const [selectedOctave, setSelectedOctave] = useState<number | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedIndex, setSelectedIndex] = useState(9); // Default to A4 (440Hz)
+  const [selectedIndex, setSelectedIndex] = useState(0); // Start with the lowest note, C4
   const [isPlayingTone, setIsPlayingTone] = useState(false);
 
   // Filtered fingerings
