@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { PracticeTimer } from './components/PracticeTimer';
 import { FingeringChart } from './components/FingeringChart';
+import { ScalePractice } from './components/ScalePractice';
 import { Metronome } from './components/Metronome';
 import { ToneDrone } from './components/ToneDrone';
 import { RoutineLibrary } from './components/RoutineLibrary';
@@ -82,6 +83,12 @@ export default function App() {
         {activeTab === 'fingering' && (
           <div className="animate-in fade-in-50 duration-300">
             <FingeringChart />
+          </div>
+        )}
+
+        {activeTab === 'scales' && (
+          <div className="animate-in fade-in-50 duration-300">
+            <ScalePractice />
           </div>
         )}
 
