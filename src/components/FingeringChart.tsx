@@ -68,7 +68,7 @@ export const FingeringChart: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-            <Music className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+            <Music className="h-6 w-6 text-brand-strong dark:text-brand-400" />
             长笛指法表与发音指引
           </h2>
           <p className="text-sm text-muted-foreground mt-0.5">
@@ -103,7 +103,7 @@ export const FingeringChart: React.FC = () => {
             onClick={() => setSelectedOctave(item.id as number | 'all')}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
               selectedOctave === item.id
-                ? 'bg-teal-600 text-white shadow-xs'
+                ? 'bg-brand text-brand-foreground shadow-xs'
                 : 'bg-muted text-muted-foreground hover:bg-muted/80'
             }`}
           >
@@ -126,12 +126,12 @@ export const FingeringChart: React.FC = () => {
                 onClick={() => setSelectedIndex(originalIndex)}
                 className={`flex flex-col items-center justify-center min-w-[58px] py-2 px-2 rounded-lg text-xs transition-all cursor-pointer border ${
                   isSelected
-                    ? 'bg-teal-600 text-white border-teal-600 shadow-xs scale-105 font-bold'
+                    ? 'bg-brand text-brand-foreground border-brand shadow-xs scale-105 font-bold'
                     : 'bg-background hover:bg-muted/70 text-foreground border-border/80'
                 }`}
               >
                 <span className="text-sm tracking-tight">{item.note}</span>
-                <span className={`text-[10px] ${isSelected ? 'text-teal-100' : 'text-muted-foreground'}`}>
+                <span className={`text-[10px] ${isSelected ? 'text-brand-100' : 'text-muted-foreground'}`}>
                   {item.solfege}
                 </span>
                 {item.isAlternate && (
@@ -157,13 +157,13 @@ export const FingeringChart: React.FC = () => {
         <div className="lg:col-span-4 flex flex-col justify-between space-y-4 bg-card rounded-2xl border border-border p-6 shadow-sm">
           <div>
             <div className="flex items-center justify-between">
-              <Badge variant="teal">第 {currentFingering.octave} 八度</Badge>
+              <Badge variant="brand">第 {currentFingering.octave} 八度</Badge>
               <Badge
                 variant={
                   currentFingering.difficulty === '初级'
-                    ? 'emerald'
+                    ? 'success'
                     : currentFingering.difficulty === '中级'
-                    ? 'teal'
+                    ? 'brand'
                     : 'amber'
                 }
               >
@@ -176,7 +176,7 @@ export const FingeringChart: React.FC = () => {
                 <h1 className="text-4xl font-extrabold tracking-tight text-foreground">
                   {currentFingering.note}
                 </h1>
-                <p className="text-base font-medium text-teal-600 dark:text-teal-400 mt-1">
+                <p className="text-base font-medium text-brand-strong dark:text-brand-400 mt-1">
                   {currentFingering.displayName}
                 </p>
               </div>
@@ -204,7 +204,7 @@ export const FingeringChart: React.FC = () => {
               className="w-full flex items-center justify-center gap-2 h-11"
               variant={isPlayingTone ? 'secondary' : 'default'}
             >
-              <Volume2 className={`h-4 w-4 ${isPlayingTone ? 'animate-bounce text-teal-500' : ''}`} />
+              <Volume2 className={`h-4 w-4 ${isPlayingTone ? 'animate-bounce text-brand-strong' : ''}`} />
               {isPlayingTone ? '正在发音...' : '试听真实长笛音色 (Tone)'}
             </Button>
 

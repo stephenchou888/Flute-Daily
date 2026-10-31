@@ -33,7 +33,7 @@ export const RoutineLibrary: React.FC<RoutineLibraryProps> = ({ onSelectRoutineB
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-            <BookOpen className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+            <BookOpen className="h-6 w-6 text-brand-strong dark:text-brand-400" />
             长笛每日系统化练习宝典
           </h2>
           <p className="text-sm text-muted-foreground mt-0.5">
@@ -50,7 +50,7 @@ export const RoutineLibrary: React.FC<RoutineLibraryProps> = ({ onSelectRoutineB
             onClick={() => setSelectedCategory(cat.id)}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all cursor-pointer border ${
               selectedCategory === cat.id
-                ? 'bg-teal-600 text-white border-teal-600 shadow-xs font-semibold'
+                ? 'bg-brand text-brand-foreground border-brand shadow-xs font-semibold'
                 : 'bg-card border-border hover:bg-muted text-foreground'
             }`}
           >
@@ -62,10 +62,10 @@ export const RoutineLibrary: React.FC<RoutineLibraryProps> = ({ onSelectRoutineB
       {/* Routine Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filtered.map(item => (
-          <Card key={item.id} className="border-border bg-card shadow-sm flex flex-col justify-between hover:border-teal-500/40 transition-all">
+          <Card key={item.id} className="border-border bg-card shadow-sm flex flex-col justify-between hover:border-brand/40 transition-all">
             <div className="p-6">
               <div className="flex items-start justify-between gap-2">
-                <Badge variant="teal">{item.composerOrSource}</Badge>
+                <Badge variant="brand">{item.composerOrSource}</Badge>
                 <span className="text-xs font-mono font-semibold text-muted-foreground">
                   ⏱️ 建议 {item.durationMinutes} 分钟
                 </span>
@@ -74,7 +74,7 @@ export const RoutineLibrary: React.FC<RoutineLibraryProps> = ({ onSelectRoutineB
               <h3 className="text-lg font-bold text-foreground mt-3">
                 {item.title}
               </h3>
-              <p className="text-xs text-teal-600 dark:text-teal-400 font-medium mt-0.5">
+              <p className="text-xs text-brand-strong dark:text-brand-400 font-medium mt-0.5">
                 {item.subtitle}
               </p>
 
@@ -100,7 +100,7 @@ export const RoutineLibrary: React.FC<RoutineLibraryProps> = ({ onSelectRoutineB
                 <ul className="space-y-1 text-xs text-muted-foreground">
                   {item.keyPoints.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-1.5">
-                      <span className="text-teal-500 font-bold">•</span>
+                      <span className="text-brand-strong font-bold">•</span>
                       <span>{point}</span>
                     </li>
                   ))}

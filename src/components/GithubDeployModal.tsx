@@ -37,7 +37,7 @@ export const GithubDeployModal: React.FC<GithubDeployModalProps> = ({ open, onOp
     <Dialog open={open} onOpenChange={onOpenChange} className="max-w-2xl">
       <DialogHeader>
         <DialogTitle className="flex items-center gap-2">
-          <Github className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+          <Github className="h-5 w-5 text-brand-strong dark:text-brand-400" />
           GitHub Pages 编译与发布部署指南
         </DialogTitle>
         <DialogDescription>
@@ -47,14 +47,14 @@ export const GithubDeployModal: React.FC<GithubDeployModalProps> = ({ open, onOp
 
       <div className="space-y-4 py-2 text-xs">
         {/* Target URL Preview */}
-        <div className="p-3.5 rounded-xl bg-teal-500/10 border border-teal-500/25 flex items-center justify-between">
+        <div className="p-3.5 rounded-xl bg-brand/10 border border-brand/25 flex items-center justify-between">
           <div>
             <span className="text-muted-foreground block text-[11px]">预计发布线上访问网址：</span>
-            <span className="font-mono font-bold text-teal-700 dark:text-teal-300 text-sm">
+            <span className="font-mono font-bold text-brand-strong dark:text-brand-300 text-sm">
               https://stephenchou888.github.io/Flute-Daily/
             </span>
           </div>
-          <Badge variant="teal">GitHub Pages</Badge>
+          <Badge variant="brand">GitHub Pages</Badge>
         </div>
 
         {/* Step 1: Push code */}
@@ -66,7 +66,7 @@ export const GithubDeployModal: React.FC<GithubDeployModalProps> = ({ open, onOp
             </span>
             <button
               onClick={() => copyToClipboard(gitCommands, 1)}
-              className="inline-flex items-center gap-1 text-[11px] text-teal-600 hover:text-teal-700 font-medium cursor-pointer"
+              className="inline-flex items-center gap-1 text-[11px] text-brand-strong hover:text-brand-strong font-medium cursor-pointer"
             >
               {copiedIndex === 1 ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
               {copiedIndex === 1 ? '已复制命令' : '一键复制代码'}
@@ -87,7 +87,7 @@ export const GithubDeployModal: React.FC<GithubDeployModalProps> = ({ open, onOp
             <li>打开你的 GitHub 仓库页面：<span className="font-mono text-foreground font-medium">github.com/stephenchou888/Flute-Daily</span></li>
             <li>点击顶部标签页 <strong className="text-foreground">Settings</strong>（设置）</li>
             <li>在左侧菜单栏找到并点击 <strong className="text-foreground">Pages</strong></li>
-            <li>在 <strong className="text-foreground">Build and deployment &gt; Source</strong> 下拉菜单中，选择：<strong className="text-teal-600 dark:text-teal-400">GitHub Actions</strong></li>
+            <li>在 <strong className="text-foreground">Build and deployment &gt; Source</strong> 下拉菜单中，选择：<strong className="text-brand-strong dark:text-brand-400">GitHub Actions</strong></li>
             <li>以后每次你执行 <code className="bg-muted px-1 rounded">git push</code>，系统就会自动编译 Vite 并更新发布！</li>
           </ol>
         </div>

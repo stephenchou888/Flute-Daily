@@ -56,7 +56,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-teal-500/20 selection:text-teal-900 dark:selection:text-teal-200">
+    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-brand/20 selection:text-brand-strong dark:selection:text-brand-300">
       {/* Top Navigation */}
       <Navbar
         activeTab={activeTab}
@@ -68,7 +68,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 container max-w-7xl mx-auto px-4 py-6 sm:py-8">
+      <main className="mx-auto w-full max-w-[1280px] flex-1 px-4 py-4 sm:px-8 sm:py-6">
         {activeTab === 'timer' && (
           <div className="space-y-8 animate-in fade-in-50 duration-300">
             <PracticeTimer onSessionLogged={refreshLogs} />
@@ -126,7 +126,7 @@ export default function App() {
       <footer className="border-t border-border/80 bg-muted/20 py-8 text-xs text-muted-foreground mt-12">
         <div className="container max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-teal-600 text-white flex items-center justify-center font-bold text-xs">
+            <div className="w-6 h-6 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs">
               <Music2 className="h-3.5 w-3.5" />
             </div>
             <span className="font-semibold text-foreground">Flute Daily</span>
@@ -136,7 +136,7 @@ export default function App() {
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
             <button
               onClick={() => setIsDeployModalOpen(true)}
-              className="hover:text-teal-600 dark:hover:text-teal-400 font-medium cursor-pointer flex items-center gap-1"
+              className="hover:text-brand-strong dark:hover:text-brand-400 font-medium cursor-pointer flex items-center gap-1"
             >
               <Github className="h-3.5 w-3.5" /> GitHub Pages 编译发布
             </button>
@@ -145,7 +145,7 @@ export default function App() {
               href="https://stephenchou888.github.io/Saxophone-Daily/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-teal-600 dark:hover:text-teal-400 flex items-center gap-1"
+              className="hover:text-brand-strong dark:hover:text-brand-400 flex items-center gap-1"
             >
               参考原型: Saxophone-Daily <ExternalLink className="h-3 w-3" />
             </a>

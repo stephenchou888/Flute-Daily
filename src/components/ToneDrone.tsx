@@ -86,7 +86,7 @@ export const ToneDrone: React.FC = () => {
     <Card className="border-border bg-card shadow-sm p-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/60 pb-4">
         <div className="flex items-center gap-2">
-          <Activity className={`h-5 w-5 text-teal-600 dark:text-teal-400 ${isPlaying ? 'animate-pulse' : ''}`} />
+          <Activity className={`h-5 w-5 text-brand-strong dark:text-brand-400 ${isPlaying ? 'animate-pulse' : ''}`} />
           <h3 className="font-semibold text-foreground text-base">长笛基准音 / 无人机持续长音 (Drone)</h3>
         </div>
         
@@ -105,7 +105,7 @@ export const ToneDrone: React.FC = () => {
             <button
               onClick={() => handleBasePitchChange(442)}
               className={`px-2.5 py-1 text-xs rounded-md font-semibold cursor-pointer transition-all ${
-                basePitch === 442 ? 'bg-teal-600 text-white shadow-xs' : 'text-muted-foreground'
+                basePitch === 442 ? 'bg-brand text-brand-foreground shadow-xs' : 'text-muted-foreground'
               }`}
             >
               A=442 Hz (长笛推荐)
@@ -118,26 +118,26 @@ export const ToneDrone: React.FC = () => {
       <div className="py-6 flex flex-col items-center justify-center">
         <div className="relative">
           {isPlaying && (
-            <div className="absolute -inset-4 rounded-full bg-teal-500/15 animate-ping" />
+            <div className="absolute -inset-4 rounded-full bg-brand/15 animate-ping" />
           )}
           <div
             className={`w-28 h-28 rounded-full border-4 flex flex-col items-center justify-center transition-all ${
               isPlaying
-                ? 'border-teal-500 bg-teal-500/10 shadow-xl shadow-teal-500/20'
+                ? 'border-brand bg-brand/10 shadow-xl shadow-brand/20'
                 : 'border-border bg-muted/30'
             }`}
           >
             <span className="text-3xl font-black text-foreground font-mono">
               {selectedNote}{selectedOctave}
             </span>
-            <span className="text-xs text-teal-600 dark:text-teal-400 font-mono mt-0.5">
+            <span className="text-xs text-brand-strong dark:text-brand-400 font-mono mt-0.5">
               {currentFreq.toFixed(1)} Hz
             </span>
           </div>
         </div>
 
         <div className="mt-4 flex items-center gap-2">
-          <Badge variant={isPlaying ? 'teal' : 'secondary'}>
+          <Badge variant={isPlaying ? 'brand' : 'secondary'}>
             {isPlaying ? '● 正在发出持续长音' : '○ 已静音'}
           </Badge>
           <Badge variant="outline">
@@ -158,7 +158,7 @@ export const ToneDrone: React.FC = () => {
                   onClick={() => handleSelectOctave(oct)}
                   className={`px-2 py-0.5 text-xs rounded-md border font-medium cursor-pointer ${
                     selectedOctave === oct
-                      ? 'bg-teal-600 text-white border-teal-600'
+                      ? 'bg-brand text-brand-foreground border-brand'
                       : 'bg-muted/50 border-border text-muted-foreground hover:bg-muted'
                   }`}
                 >
@@ -177,7 +177,7 @@ export const ToneDrone: React.FC = () => {
                   onClick={() => handleSelectNote(note.name)}
                   className={`h-11 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
                     isSelected
-                      ? 'bg-teal-600 text-white border-teal-600 shadow-sm scale-105'
+                      ? 'bg-brand text-brand-foreground border-brand shadow-sm scale-105'
                       : 'bg-card border-border hover:bg-muted/70 text-foreground'
                   }`}
                 >
@@ -233,7 +233,7 @@ export const ToneDrone: React.FC = () => {
               step="0.05"
               value={volume}
               onChange={e => handleVolumeChange(parseFloat(e.target.value))}
-              className="w-full accent-teal-600 h-2 bg-muted rounded-lg cursor-pointer"
+              className="w-full accent-brand-strong h-2 bg-muted rounded-lg cursor-pointer"
             />
           </div>
         </div>

@@ -108,13 +108,13 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ onSessionLogged })
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Timer & Live Status Card */}
-      <Card className="border-border bg-gradient-to-br from-card via-card to-teal-950/10 shadow-sm p-6">
+      <Card className="border-border bg-card shadow-sm p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4">
           <div>
             <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+              <Clock className="h-5 w-5 text-brand-strong dark:text-brand-400" />
               <h3 className="font-semibold text-foreground text-lg">实时练习计时器 & 练习清单</h3>
             </div>
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -123,7 +123,7 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ onSessionLogged })
           </div>
 
           <div className="flex items-center gap-2">
-            <Badge variant={isRunning ? 'emerald' : 'secondary'} className="px-3 py-1">
+            <Badge variant={isRunning ? 'success' : 'secondary'} className="px-3 py-1">
               {isRunning ? '● 正在专注练习' : '○ 已暂停'}
             </Badge>
           </div>
@@ -160,7 +160,7 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ onSessionLogged })
             <Button
               onClick={handleOpenLogModal}
               size="lg"
-              variant="emerald"
+              variant="success"
               className="font-semibold shadow-sm"
             >
               <CheckCircle2 className="h-5 w-5 mr-1" /> 完成并打卡
@@ -190,7 +190,7 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ onSessionLogged })
               (已完成 {completedItems.length} / {PRACTICE_ROUTINES.length} 项)
             </span>
           </h4>
-          <span className="text-xs text-teal-600 dark:text-teal-400 font-medium">
+          <span className="text-xs text-brand-strong dark:text-brand-400 font-medium">
             点击项目可标记完成
           </span>
         </div>
@@ -204,13 +204,13 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ onSessionLogged })
                 onClick={() => toggleCheckItem(routine.id)}
                 className={`p-3.5 rounded-xl border transition-all cursor-pointer flex items-start gap-3 select-none ${
                   isDone
-                    ? 'bg-teal-500/10 border-teal-500/40 text-foreground'
-                    : 'bg-card border-border hover:border-teal-500/40 hover:bg-muted/40'
+                    ? 'bg-brand/10 border-brand/40 text-foreground'
+                    : 'bg-card border-border hover:border-brand/40 hover:bg-muted/40'
                 }`}
               >
                 <div className="mt-0.5 shrink-0">
                   {isDone ? (
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+                    <CheckCircle2 className="h-5 w-5 text-brand-strong dark:text-brand-400" />
                   ) : (
                     <Circle className="h-5 w-5 text-muted-foreground" />
                   )}
@@ -238,7 +238,7 @@ export const PracticeTimer: React.FC<PracticeTimerProps> = ({ onSessionLogged })
       <Dialog open={isLogDialogOpen} onOpenChange={setIsLogDialogOpen}>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-teal-500" />
+            <Sparkles className="h-5 w-5 text-brand-strong" />
             保存今日练习记录
           </DialogTitle>
           <DialogDescription>

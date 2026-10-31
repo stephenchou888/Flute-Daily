@@ -44,9 +44,9 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
         className={cn(
           'flex flex-col items-center justify-between p-2.5 rounded-xl border text-center transition-all duration-200 select-none cursor-pointer',
           active
-            ? 'bg-teal-500/10 border-teal-500/60 shadow-xs shadow-teal-500/15'
+            ? 'bg-brand/10 border-brand/60 shadow-xs shadow-brand/15'
             : 'bg-card/70 border-border/80 hover:bg-muted/50 text-muted-foreground',
-          isHovered && 'ring-2 ring-teal-500/50 scale-102 bg-teal-500/15'
+          isHovered && 'ring-2 ring-brand/50 scale-102 bg-brand/15'
         )}
       >
         {/* Status Indicator circle */}
@@ -55,7 +55,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
             className={cn(
               'w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all border',
               active
-                ? 'bg-teal-600 text-white border-teal-500 shadow-md shadow-teal-500/30'
+                ? 'bg-brand text-brand-foreground border-brand shadow-md shadow-brand/30'
                 : 'bg-muted border-slate-300 dark:border-slate-700 text-muted-foreground'
             )}
           >
@@ -68,7 +68,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
           <span
             className={cn(
               'text-[11px] font-bold block leading-tight truncate',
-              active ? 'text-teal-700 dark:text-teal-300' : 'text-foreground'
+              active ? 'text-brand-strong dark:text-brand-300' : 'text-foreground'
             )}
           >
             {fingerLabel}
@@ -83,7 +83,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
           className={cn(
             'mt-2 px-1.5 py-0.5 rounded text-[9px] font-semibold tracking-wide',
             active
-              ? 'bg-teal-600 text-white'
+              ? 'bg-brand text-brand-foreground'
               : 'bg-muted text-muted-foreground/80'
           )}
         >
@@ -103,7 +103,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
       {/* Top bar info */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-3">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-strong dark:text-brand-400">
             实物长笛图例与指法映射 (Boehm System)
           </span>
           {fingering.isAlternate && (
@@ -114,7 +114,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
         </div>
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-teal-500 inline-block shadow-xs" />
+            <span className="w-2.5 h-2.5 rounded-full bg-brand inline-block shadow-xs" />
             <span>绿亮 = 按下闭孔</span>
           </div>
           <div className="flex items-center gap-1.5">
@@ -130,10 +130,10 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
       <div className="bg-white/90 dark:bg-slate-900/90 rounded-2xl border border-border/80 p-3 sm:p-5 shadow-xs">
         <div className="text-[11px] font-semibold text-muted-foreground mb-2 flex flex-wrap items-center justify-between gap-2 px-1">
           <div className="flex items-center gap-2">
-            <span className="text-teal-600 dark:text-teal-400 font-bold">✨ 纯银伯姆长笛 (Boehm Concert Flute) 实物图解</span>
+            <span className="text-brand-strong dark:text-brand-400 font-bold">✨ 纯银伯姆长笛 (Boehm Concert Flute) 实物图解</span>
             <span className="text-[10px] text-muted-foreground">• 法式尖头开孔按键系统</span>
           </div>
-          <span className="text-[10px] bg-teal-500/10 text-teal-700 dark:text-teal-300 px-2 py-0.5 rounded-full font-medium">
+          <span className="text-[10px] bg-brand/10 text-brand-strong dark:text-brand-300 px-2 py-0.5 rounded-full font-medium">
             鼠标悬停按键可预览指位联动
           </span>
         </div>
@@ -161,7 +161,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* 2.1 Left Hand Section (左手手位) - 5 Cols */}
           <div className="md:col-span-6 bg-muted/30 dark:bg-slate-900/40 rounded-xl border border-border/70 p-3">
-            <div className="text-xs font-bold text-teal-600 dark:text-teal-400 mb-2.5 flex items-center justify-between">
+            <div className="text-xs font-bold text-brand-strong dark:text-brand-400 mb-2.5 flex items-center justify-between">
               <span>左手手位 (Left Hand)</span>
               <span className="text-[10px] font-normal text-muted-foreground">控制主管上半段</span>
             </div>
@@ -214,7 +214,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
                 className={cn(
                   'inline-flex items-center gap-2 px-3 py-1 rounded-lg border text-xs font-medium cursor-pointer transition-all',
                   keys.lhGSharp
-                    ? 'bg-teal-600 text-white border-teal-600 shadow-xs'
+                    ? 'bg-brand text-brand-foreground border-brand shadow-xs'
                     : 'bg-card border-border text-muted-foreground hover:bg-muted'
                 )}
               >
@@ -226,7 +226,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
 
           {/* 2.2 Right Hand Section (右手手位) - 6 Cols */}
           <div className="md:col-span-6 bg-muted/30 dark:bg-slate-900/40 rounded-xl border border-border/70 p-3">
-            <div className="text-xs font-bold text-teal-600 dark:text-teal-400 mb-2.5 flex items-center justify-between">
+            <div className="text-xs font-bold text-brand-strong dark:text-brand-400 mb-2.5 flex items-center justify-between">
               <span>右手手位 (Right Hand)</span>
               <span className="text-[10px] font-normal text-muted-foreground">控制主管下半段与尾管</span>
             </div>
@@ -287,7 +287,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
                   className={cn(
                     'px-2 py-0.5 rounded text-[10px] font-medium border',
                     keys.trill1
-                      ? 'bg-teal-600 text-white border-teal-600'
+                      ? 'bg-brand text-brand-foreground border-brand'
                       : 'bg-card border-border text-muted-foreground'
                   )}
                 >
@@ -297,7 +297,7 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
                   className={cn(
                     'px-2 py-0.5 rounded text-[10px] font-medium border',
                     keys.trill2
-                      ? 'bg-teal-600 text-white border-teal-600'
+                      ? 'bg-brand text-brand-foreground border-brand'
                       : 'bg-card border-border text-muted-foreground'
                   )}
                 >
@@ -309,8 +309,8 @@ export const FluteDiagram: React.FC<FluteDiagramProps> = ({
         </div>
 
         {/* 3. Technique Advice Box */}
-        <div className="flex items-start gap-3 rounded-xl bg-teal-500/10 border border-teal-500/20 p-3.5 text-xs text-foreground">
-          <div className="p-1 rounded-md bg-teal-500/20 text-teal-700 dark:text-teal-300 shrink-0 font-bold">
+        <div className="flex items-start gap-3 rounded-xl bg-brand/10 border border-brand/20 p-3.5 text-xs text-foreground">
+          <div className="p-1 rounded-md bg-brand/20 text-brand-strong dark:text-brand-300 shrink-0 font-bold">
             💡 发音指导
           </div>
           <div className="leading-relaxed">

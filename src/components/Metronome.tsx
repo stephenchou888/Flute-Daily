@@ -144,10 +144,10 @@ export const Metronome: React.FC<MetronomeProps> = ({
     <Card className={`border-border bg-card shadow-sm ${compact ? 'p-4' : 'p-6'}`}>
       <div className="flex items-center justify-between border-b border-border/60 pb-4">
         <div className="flex items-center gap-2">
-          <Disc className={`h-5 w-5 text-teal-600 dark:text-teal-400 ${isPlaying ? 'animate-spin' : ''}`} />
+          <Disc className={`h-5 w-5 text-brand-strong dark:text-brand-400 ${isPlaying ? 'animate-spin' : ''}`} />
           <h3 className="font-semibold text-foreground text-base">高精度数字节拍器</h3>
         </div>
-        <Badge variant="teal">{getTempoTerm(bpm)}</Badge>
+        <Badge variant="brand">{getTempoTerm(bpm)}</Badge>
       </div>
 
       {/* Main Beat Display & Tempo Number */}
@@ -165,8 +165,8 @@ export const Metronome: React.FC<MetronomeProps> = ({
                 } ${
                   isCurrent
                     ? isAccent
-                      ? 'bg-teal-500 scale-125 shadow-lg shadow-teal-500/40 text-white'
-                      : 'bg-emerald-400 scale-110 shadow-md text-white'
+                      ? 'bg-brand scale-125 shadow-lg shadow-brand/40 text-brand-foreground'
+                      : 'bg-brand scale-110 shadow-md text-brand-foreground'
                     : 'bg-muted border border-border/70 text-muted-foreground'
                 }`}
               >
@@ -210,7 +210,7 @@ export const Metronome: React.FC<MetronomeProps> = ({
             max={240}
             value={bpm}
             onChange={e => updateBpm(Number(e.target.value))}
-            className="w-full accent-teal-600 h-2 bg-muted rounded-lg cursor-pointer"
+            className="w-full accent-brand-strong h-2 bg-muted rounded-lg cursor-pointer"
           />
           <div className="flex justify-between text-[11px] text-muted-foreground mt-1 font-mono">
             <span>30</span>
@@ -246,7 +246,7 @@ export const Metronome: React.FC<MetronomeProps> = ({
         <Button
           variant="outline"
           onClick={handleTapTempo}
-          className="h-12 px-5 font-semibold active:bg-teal-500/10 cursor-pointer"
+          className="h-12 px-5 font-semibold active:bg-brand/10 cursor-pointer"
         >
           🎯 测速 (Tap Tempo)
         </Button>
@@ -273,7 +273,7 @@ export const Metronome: React.FC<MetronomeProps> = ({
                 onClick={() => setTimeSignature(sig)}
                 className={`flex-1 py-1.5 text-xs font-medium rounded-lg border transition-all cursor-pointer ${
                   timeSignature === sig
-                    ? 'bg-teal-600 text-white border-teal-600 shadow-xs'
+                    ? 'bg-brand text-brand-foreground border-brand shadow-xs'
                     : 'bg-muted/50 border-border hover:bg-muted text-foreground'
                 }`}
               >
@@ -297,7 +297,7 @@ export const Metronome: React.FC<MetronomeProps> = ({
                 onClick={() => setSubdivision(sub.id as typeof subdivision)}
                 className={`flex-1 py-1.5 text-xs font-medium rounded-lg border transition-all cursor-pointer ${
                   subdivision === sub.id
-                    ? 'bg-teal-600 text-white border-teal-600 shadow-xs'
+                    ? 'bg-brand text-brand-foreground border-brand shadow-xs'
                     : 'bg-muted/50 border-border hover:bg-muted text-foreground'
                 }`}
               >
