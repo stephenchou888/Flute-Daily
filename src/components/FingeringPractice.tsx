@@ -178,8 +178,8 @@ export const FingeringPractice: React.FC<FingeringPracticeProps> = ({
 
     target.classList.add('active-score-note');
     target.querySelectorAll('path').forEach(path => {
-      (path as SVGPathElement).style.fill = '#f59e0b';
-      (path as SVGPathElement).style.stroke = '#f59e0b';
+      (path as SVGPathElement).style.fill = 'var(--brand)';
+      (path as SVGPathElement).style.stroke = 'var(--brand)';
       (path as SVGPathElement).style.filter = 'drop-shadow(0 0 6px rgba(245, 158, 11, 0.95))';
     });
 
@@ -212,7 +212,7 @@ export const FingeringPractice: React.FC<FingeringPracticeProps> = ({
               step="5"
               value={bpm}
               onChange={event => setBpm(Number(event.target.value))}
-              className="w-24 accent-teal-600"
+              className="w-24 accent-brand-strong"
             />
           </label>
           <Button

@@ -86,7 +86,7 @@ export const RealisticFluteSvg: React.FC<RealisticFluteSvgProps> = ({
 
           {/* Glow filter for active key */}
           <filter id="softActiveGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="#10b981" floodOpacity="0.8" />
+            <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="var(--brand)" floodOpacity="0.8" />
           </filter>
 
           {/* Steel Rod Axle Gradient */}
@@ -503,12 +503,12 @@ export const RealisticFluteSvg: React.FC<RealisticFluteSvgProps> = ({
                 y1={info.cy + info.r + 3}
                 x2={info.cx}
                 y2={95}
-                stroke="#10b981"
+                stroke="var(--brand)"
                 strokeWidth="1"
                 strokeDasharray="2,2"
                 opacity="0.85"
               />
-              <circle cx={info.cx} cy={95} r="2" fill="#10b981" />
+              <circle cx={info.cx} cy={95} r="2" fill="var(--brand)" />
             </g>
           );
         })}
@@ -516,8 +516,8 @@ export const RealisticFluteSvg: React.FC<RealisticFluteSvgProps> = ({
         {/* Section Brackets on Bottom (笛头 / 笛身左手 / 笛身右手 / 尾管) */}
         <g fontSize="7.5" fill="#94a3b8" fontWeight="600" fontFamily="sans-serif">
           <text x="140" y="112" textAnchor="middle" fill="#64748b">① 笛头 (Headjoint)</text>
-          <text x="445" y="112" textAnchor="middle" fill="#0d9488">② 笛身 · 左手键区</text>
-          <text x="635" y="112" textAnchor="middle" fill="#0d9488">③ 笛身 · 右手键区</text>
+          <text x="445" y="112" textAnchor="middle" fill="var(--brand-strong)">② 笛身 · 左手键区</text>
+          <text x="635" y="112" textAnchor="middle" fill="var(--brand-strong)">③ 笛身 · 右手键区</text>
           <text x="870" y="112" textAnchor="middle" fill="#64748b">④ 尾管 (Footjoint)</text>
         </g>
       </svg>

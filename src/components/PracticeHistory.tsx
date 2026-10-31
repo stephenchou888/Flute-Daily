@@ -35,7 +35,7 @@ interface PracticeHistoryProps {
 }
 
 const CATEGORY_LABELS: Record<PracticeCategory, { label: string; color: string }> = {
-  long_tone: { label: '长音与音色', color: 'bg-teal-500/15 text-teal-700 dark:text-teal-300' },
+  long_tone: { label: '长音与音色', color: 'bg-brand/15 text-brand-strong dark:text-brand-300' },
   harmonics: { label: '泛音与口风', color: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300' },
   scales: { label: '音阶与琶音', color: 'bg-blue-500/15 text-blue-700 dark:text-blue-300' },
   articulation: { label: '吐音与运舌', color: 'bg-amber-500/15 text-amber-700 dark:text-amber-300' },
@@ -183,7 +183,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
 
         {/* Total Time */}
         <Card className="p-4 border-border bg-card flex items-center gap-3 shadow-xs">
-          <div className="p-3 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400">
+          <div className="p-3 rounded-xl bg-brand/10 text-brand-strong dark:text-brand-400">
             <Clock className="h-6 w-6" />
           </div>
           <div>
@@ -238,7 +238,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
             <h3 className="font-semibold text-foreground text-base flex items-center gap-2">
-              <BarChart2 className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+              <BarChart2 className="h-5 w-5 text-brand-strong dark:text-brand-400" />
               练习热力日历 (最近 12 周)
             </h3>
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -249,9 +249,9 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground self-end sm:self-auto">
             <span>较少</span>
             <span className="w-3 h-3 rounded-xs bg-muted border border-border" />
-            <span className="w-3 h-3 rounded-xs bg-teal-200 dark:bg-teal-950" />
-            <span className="w-3 h-3 rounded-xs bg-teal-400 dark:bg-teal-700" />
-            <span className="w-3 h-3 rounded-xs bg-teal-600 dark:bg-teal-500" />
+            <span className="w-3 h-3 rounded-xs bg-brand-200 dark:bg-brand-950" />
+            <span className="w-3 h-3 rounded-xs bg-brand-400 dark:bg-brand-700" />
+            <span className="w-3 h-3 rounded-xs bg-brand-strong dark:bg-brand" />
             <span>较多</span>
           </div>
         </div>
@@ -261,16 +261,16 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
           <div className="inline-grid grid-rows-7 grid-flow-col gap-1.5 min-w-max p-1">
             {heatmapDays.map((d, idx) => {
               let bg = 'bg-muted/70';
-              if (d.minutes > 60) bg = 'bg-teal-600 dark:bg-teal-500';
-              else if (d.minutes >= 40) bg = 'bg-teal-500 dark:bg-teal-600';
-              else if (d.minutes >= 20) bg = 'bg-teal-300 dark:bg-teal-800';
-              else if (d.minutes > 0) bg = 'bg-teal-200 dark:bg-teal-950';
+              if (d.minutes > 60) bg = 'bg-brand-strong dark:bg-brand';
+              else if (d.minutes >= 40) bg = 'bg-brand dark:bg-brand-strong';
+              else if (d.minutes >= 20) bg = 'bg-brand-300 dark:bg-brand-800';
+              else if (d.minutes > 0) bg = 'bg-brand-200 dark:bg-brand-950';
 
               return (
                 <div
                   key={idx}
                   title={`${d.date} : 练习 ${d.minutes} 分钟 (${d.count} 次)`}
-                  className={`w-3.5 h-3.5 rounded-xs transition-all hover:ring-2 hover:ring-teal-400 cursor-pointer ${bg}`}
+                  className={`w-3.5 h-3.5 rounded-xs transition-all hover:ring-2 hover:ring-brand-400 cursor-pointer ${bg}`}
                 />
               );
             })}
@@ -293,7 +293,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
                   {minutes} <span className="text-[10px] font-normal text-muted-foreground">分</span>
                 </span>
                 <div className="w-full bg-muted rounded-full h-1.5 mt-2 overflow-hidden">
-                  <div className="bg-teal-500 h-1.5 rounded-full" style={{ width: `${percent}%` }} />
+                  <div className="bg-brand h-1.5 rounded-full" style={{ width: `${percent}%` }} />
                 </div>
               </div>
             );
@@ -305,7 +305,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
       <Card className="border-border bg-card shadow-sm p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-4 mb-4">
           <div className="flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+            <BookOpen className="h-5 w-5 text-brand-strong dark:text-brand-400" />
             <h3 className="font-semibold text-foreground text-base">详细练习流水账与反思</h3>
           </div>
 
@@ -341,7 +341,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
             onClick={() => setFilterCategory('all')}
             className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
               filterCategory === 'all'
-                ? 'bg-teal-600 text-white font-semibold'
+                ? 'bg-brand text-brand-foreground font-semibold'
                 : 'bg-muted text-muted-foreground hover:bg-muted/80'
             }`}
           >
@@ -353,7 +353,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
               onClick={() => setFilterCategory(cat)}
               className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                 filterCategory === cat
-                  ? 'bg-teal-600 text-white font-semibold'
+                  ? 'bg-brand text-brand-foreground font-semibold'
                   : 'bg-muted text-muted-foreground hover:bg-muted/80'
               }`}
             >
@@ -374,7 +374,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
                 <div className="space-y-1.5 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="font-mono font-bold text-sm text-foreground">{log.date}</span>
-                    <Badge variant="teal">{log.durationMinutes} 分钟</Badge>
+                    <Badge variant="brand">{log.durationMinutes} 分钟</Badge>
                     {log.bpmAchieved && (
                       <Badge variant="outline" className="font-mono text-xs">
                         🚀 {log.bpmAchieved} BPM
@@ -388,7 +388,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
                   </div>
 
                   {log.etudeOrPiece && (
-                    <div className="text-xs font-semibold text-teal-600 dark:text-teal-400">
+                    <div className="text-xs font-semibold text-brand-strong dark:text-brand-400">
                       🎼 曲目/练习：{log.etudeOrPiece}
                     </div>
                   )}
@@ -476,7 +476,7 @@ export const PracticeHistory: React.FC<PracticeHistoryProps> = ({ logs, onLogsCh
                     }}
                     className={`px-2.5 py-1 rounded-md text-xs font-medium border cursor-pointer ${
                       isSelected
-                        ? 'bg-teal-600 text-white border-teal-600'
+                        ? 'bg-brand text-brand-foreground border-brand'
                         : 'bg-muted/50 border-border text-foreground'
                     }`}
                   >
